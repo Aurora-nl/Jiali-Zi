@@ -1,0 +1,80 @@
+function [W1,Emax,max_fitness] = GA_mainfunction(X)
+%%遗传参数设置
+P=200;%初始种群大小
+irange_l=-1; %问题解区间
+irange_r=1;
+LENGTH=22; %二进制编码长度
+ITERATION = 100;%迭代次数
+CROSSOVERRATE = 0.7;%杂交率
+SELECTRATE = 0.5;%选择率
+VARIATIONRATE = 0.001;%变异率
+D = 4 ; %空间维数
+
+%初始化种群
+pop=m_InitPop(P,D,irange_l,irange_r);
+pop_save = pop;
+max_fitness = -inf;
+Emax = 0;
+% for o = 1:P
+%     W=rand(2);
+%     Data{o}= W; %将矩阵存储进元胞数组中
+% end 
+% hold on
+% for i=1:size(pop,2)
+%     plot(pop(i),m_Fx(pop(i)),'ro');
+% end
+% hold off
+% title('初始种群');
+
+
+%开始迭代
+for time=1:ITERATION    
+    [fitness,W]= m_Fitness(pop,P,X);
+    time_max_fitness = max(fitness);
+    
+    if time_max_fitness > max_fitness
+        max_fitness = time_max_fitness;
+        W1 = W;
+        Emax = time;
+    end
+    record(time) = max_fitness;%最大值记录
+    pause(0.001)
+    figure(8)
+    plot(time,max_fitness,'ro');
+    title('fitness');xlabel('time','fontname','Times New Roman','fontsize',9);
+    ylabel('fitness','fontname','Times New Roman','fontsize',9);
+    %计算初始种群的适应度
+    %选择
+    pop=m_Select(fitness,pop,SELECTRATE);
+    
+    %编码
+    binpop=m_Coding(pop,LENGTH,irange_l);
+    
+    %交叉
+    kidsPop = crossover(binpop,P,CROSSOVERRATE);
+  
+    %变异
+    kidsPop = Variation(kidsPop,VARIATIONRATE);
+    
+    %解码
+    kidsPop=m_Incoding(kidsPop,irange_l);
+    
+    %更新种群 
+    pop = [pop;kidsPop];    
+end
+ figure(10);plot(record);title('收敛过程') 
+% figure
+% x=linspace(-1,2,1000);
+% y=m_Fx(x);
+% plot(x,y);
+% hold on
+%画图
+% for i=1:size(pop,2)
+%     plot(pop(i),m_Fx(pop(i)),'ro');
+% end
+hold off
+end
+    
+    
+
+

@@ -1,0 +1,30 @@
+SpeechSeparation is the experient code about symmetric matrices.
+
+TotalFile1.m is the total function.
+---- PSO---
+ |---- lzqSprepare.m is called PSO.
+        |----- Pso.m is looking for the optimal separation matrix.
+
+ |---- SprepareGA.m is called GA.
+         |----- GA_mainfunction.m is looking for the optimal separation matrix.
+
+ |---- SprepareDE.m is called DE.
+         |----- DE_sprepare1.m is looking for the optimal separation matrix.
+
+ |---- SprepareSCA.m is called SCA.
+         |----- SCAoptimum.m is looking for the optimal separation matrix.
+
+ |---- SprepareBOA.m is called BOA.
+         |----- BOAoptimum.m is looking for the optimal separation matrix.
+
+ |---- SprepareCSA.m is called CSA.
+         |----- SprepareCSA.m is looking for the optimal separation matrix.
+
+PGZB---
+ |--------- R_sisdr1.m is the calculation function of evaluation index of SI-SDR
+ |--------- stoi.m is the calculation function of evaluation index of STOI.
+ |--------- pesq_cd.m is the calculation function of evaluation index of PESQ 
+
+ |---------FitnessFunW4.m  is a fitness function of symmetric matrices.
+ |---------FitnessFunNew.m  is a fitness function adding cross-correlation of symmetric matrices.
+ |---------SepChoose.m is a function that determines the final separation signals based on the cross-correlation value.

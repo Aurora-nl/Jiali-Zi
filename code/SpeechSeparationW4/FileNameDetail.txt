@@ -1,0 +1,32 @@
+SpeechSeparationW4 is the experient code about four dimensional matrix.
+
+TotalFile1.m is the total function.
+
+ |---- lzqSprepareW4.m is called PSO.
+        |----- PsoW4.m is looking for the optimal separation matrix.
+
+ |---- SprepareGAW4.m is called GA.
+         |----- GA_mainfunctionW4.m is looking for the optimal separation matrix.
+
+ |---- SprepareDEW4.m is called DE.
+         |----- DE_sprepareW4.m is looking for the optimal separation matrix.
+
+ |---- SprepareSCAW4.m is called SCA.
+         |----- SCAoptimumW4.m is looking for the optimal separation matrix.
+
+ |---- SprepareBOAW4.m is called BOA.
+         |----- BOAoptimumW4.m is looking for the optimal separation matrix.
+
+ |---- SprepareCSAW4.m is called CSA.
+         |----- SprepareCSAW4.m is looking for the optimal separation matrix.
+
+PGZB---
+ |--------- R_sisdr1.m is the calculation function of evaluation index of SI-SDR
+ |--------- stoi.m is the calculation function of evaluation index of STOI.
+ |--------- pesq_cd.m is the calculation function of evaluation index of PESQ 
+
+ |---------FitnessFunW4NOXcorr.m  is a fitness function of four dimensional matrix.
+ |---------FitnessFunW4.m  is a fitness function adding cross-correlation of four dimensional matrix.
+ |---------SepChoose2.m is a function that determines the final separation signals based on the cross-correlation value.
+
+
